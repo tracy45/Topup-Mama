@@ -1,0 +1,26 @@
+<legend>User Login Page</legend>
+<div class="container p-3">
+  <form [formGroup]="loginform" (ngSubmit)="onsubmit()">
+    <div class="card-body">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="text" formControlName="email"class="form-control" [ngClass]="{'is-invalid': submitted && f.email.errors}"/>
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Username Required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="password formControlName="
+               "password" class="form-control" [ngClass]="{'is-invalid': submitted && f.password.errors}"/>
+        <div *ngIf="submitted && f.password.errors.required">Password Required</div>
+      </div>
+
+      <div class="form-group">
+        <button [disabled]="loading" class="btn-primary">Login</button>
+        <a [routerLink]="['/signup']" class="btn-link">Create Account</a>
+    </div>
+    </div>
+  </form>
+</div>
